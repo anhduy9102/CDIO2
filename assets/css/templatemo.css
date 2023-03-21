@@ -17,7 +17,7 @@ Table of contents
 8. Carousel Hero
 9. Carousel Brand
 10. Services
-11. Contact map
+11. Liên hệ map
 12. Footer
 13. Small devices (landscape phones, 576px and up)
 14. Medium devices (tablets, 768px and up)
@@ -133,7 +133,7 @@ body, ul, li, p, a, label, input, div {
 .services-icon-wap {transition: .3s;}
 .services-icon-wap:hover, .services-icon-wap:hover i {color: #fff;}
 .services-icon-wap:hover {background: #69bb7e;}
-/* Contact map */
+/* Liên hệ map */
 .leaflet-control a, .leaflet-control { font-size: 10px !important;}
 .form-control { border: 1px solid #e8e8e8;}
 /* Footer */

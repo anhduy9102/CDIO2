@@ -1,13 +1,20 @@
 {
   "name": "templatemo_559_zay_shop",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "echo \"Error: no test specified\" && exit 1",
-    "server": "json-server --watch db.json"
+   
+    "start": "json-server --watch db.json" ,
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  },
+  "description": ""
 }
