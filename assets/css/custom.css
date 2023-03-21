@@ -1,0 +1,7 @@
+/*
+Custom Css
+*/
+
+.product__cart--btn li a i {
+    pointer-events: none;
+}
