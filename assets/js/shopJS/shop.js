@@ -2,7 +2,7 @@ const productList = document.querySelector('.container__products')
 
 const getProduct = async () => {
     try {
-        let response = await fetch('./assets/data/data.json')
+        let response = await fetch('http://localhost:3000/products')
 
         let data = response.json()
 
@@ -80,7 +80,6 @@ const getLocalStorage = () => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    getProduct().then(data => saveLocalStorage(data))
-    renderProduct(getLocalStorage())
-    singleProduct()
+    getProduct().then(data => {renderProduct(data); singleProduct()})
+    
 })

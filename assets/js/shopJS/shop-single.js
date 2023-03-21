@@ -1,9 +1,20 @@
 const img = document.getElementById('product-detail')
 const cardBody = document.querySelector('.card__right')
 
-const renderProductSingle = () => {
-    const data = getLocalStorage()
-    const productID = getProduct()
+const getProduct = async () => {
+    try {
+        let response = await fetch('http://localhost:3000/products')
+
+        let data = response.json()
+
+        return data
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+const renderProductSingle = (data) => {
+    const productID = getProductID()
 
     if (!Array.isArray(data)) return 'data is not array'
 
@@ -59,14 +70,10 @@ const renderProductSingle = () => {
     cardBody.innerHTML = card
 }
 
-const getLocalStorage = () => {
-    return JSON.parse(localStorage.getItem('data'))
-}
-
-const getProduct = () => {
+const getProductID = () => {
     return JSON.parse(localStorage.getItem('targetID'))
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    renderProductSingle()
+    getProduct().then(data => renderProductSingle(data))
 })
