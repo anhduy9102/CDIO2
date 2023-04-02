@@ -5,3 +5,16 @@ Custom Css
 .product__cart--btn li a i {
     pointer-events: none;
 }
+
+.back__home {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px auto;
+}
+
+.hinhdaidien {
+    width: 238px;
+    height: 318px;
+    object-fit: cover;
+}
