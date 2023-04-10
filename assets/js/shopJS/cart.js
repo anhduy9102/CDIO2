@@ -12,6 +12,20 @@ const getCart = async () => {
 	}
 }
 
+const deleteProduct = async id => {
+	try {
+		let response = await fetch(`http://localhost:3000/cart/${id}`, {
+			method: 'DELETE',
+		})
+
+		let data = response.json()
+
+		return data
+	} catch (err) {
+		console.log(err)
+	}
+}
+
 const renderCart = data => {
 	if (!Array.isArray(data)) return 'data is not array'
 	let result = ''
@@ -31,7 +45,7 @@ const renderCart = data => {
 									parseInt(price) * parseInt(amount)
 								}</td>
                 <td>
-                    <a id="delete_1" data-sp-ma=${id} class="btn btn-danger btn-delete-sanpham">
+                    <a id="delete_1" data-product=${id} class="btn btn-danger btn-delete-sanpham">
                         <i class="fa fa-trash" aria-hidden="true"></i> Xóa
                     </a>
                 </td>
@@ -39,6 +53,21 @@ const renderCart = data => {
         `
 	})
 	Cart.innerHTML = result
+
+	removeProduct()
+}
+
+const removeProduct = () => {
+	const btns = document.querySelectorAll('.btn-delete-sanpham')
+
+	btns.forEach(btn => {
+		btn.addEventListener('click', e => {
+			e.preventDefault()
+			let productId = e.target.dataset.product
+
+			deleteProduct(productId)
+		})
+	})
 }
 
 document.addEventListener('DOMContentLoaded', () => {

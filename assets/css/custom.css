@@ -3,47 +3,67 @@ Custom Css
 */
 
 .product__cart--btn li a i {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 .back__home {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 30px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px auto;
 }
 
 .hinhdaidien {
-    width: 238px;
-    height: 318px;
-    object-fit: cover;
+  width: 238px;
+  height: 318px;
+  object-fit: cover;
 }
 
 /* Css logout */
 .product__cart--btn li a i {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 .container-dx {
-    width: 400px;
-    margin: auto;
-    padding: 10px;
-  }
-  
-  .header-dx {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
+  width: 400px;
+  margin: auto;
+  padding: 10px;
+}
+
+.header-dx {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
 
 .account-form {
-    display: none;
-    position: absolute;
-    top: 60px;
-    right: 10px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    z-index: 1;
-  }
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  z-index: 1;
+}
+
+.gender__btn {
+  cursor: pointer;
+  margin: 14px 0;
+  transform: translateX(0);
+  transition: transform 0.5s linear;
+}
+
+.gender__btn:hover {
+  color: var(--bs-green);
+  transform: translateX(10px);
+}
+
+.gender__btn:hover a {
+  color: var(--bs-green);
+}
+
+.gender__btn a {
+  pointer-events: none;
+}
