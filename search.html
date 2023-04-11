@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/css/stylesearch.css">
+  <link rel="stylesheet" href="./data.json">
+
+</head>
+
+  <!-- <h1>Trang tìm kiếm sản phẩm</h1> -->
+  <div id="searchContainer">
+    <input type="text" id="searchInput" placeholder="Nhập từ khóa tìm kiếm">
+    <button onclick="searchProducts()">Tìm kiếm</button>
+  </div>
+  <div class="search-buttons">
+    <button onclick="showAllProducts()" id="searchAllButton">Tất cả</button>
+    <button id="searchPriceButton">
+      <label for="minPrice">Giá tối thiểu:</label>
+      <input type="number" id="minPrice" min="0">
+      <label for="maxPrice">Giá tối đa:</label>
+      <input type="number" id="maxPrice" min="0">
+      <button onclick="searchByPrice()">Tìm kiếm</button>
+    </button>
+    <button id="searchCategoryButton">Tìm kiếm danh mục</button>
+  </div>
+
+  <div id="searchResults"></div>
+
+
+  <script>
+
+// fetch('path/to/data.json')
+//   .then(response => response.json())
+//   .then(data => {
+//     // Trích xuất đường dẫn ảnh từ dữ liệu JSON
+//     const imagePath = data.imagePath;
+
+//     // Tạo thẻ <img> và hiển thị ảnh trên trang web
+//     const img = document.createElement('img');
+//     img.src = imagePath;
+//     document.body.appendChild(img);
+//   });
+
+
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+    
+    function searchProducts() {
+      searchResults.innerHTML = '';
+
+      const searchQuery = searchInput.value.trim().toLowerCase();
+      if (searchQuery === '') {
+        searchResults.innerHTML = '<p>Vui lòng nhập từ khóa tìm kiếm.</p>';
+        return;
+      }
+
+
+      fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+          const filteredData = data.filter(product => {
+            const productName = product.name.toLowerCase();
+            const productDescription = product.description.toLowerCase();
+            const productCategory = product.category.toLowerCase();
+            return productName.includes(searchQuery) ||
+              productDescription.includes(searchQuery) ||
+              productCategory.includes(searchQuery);
+          });
+
+          if (filteredData.length === 0) {
+            searchResults.innerHTML = '<p>Không tìm thấy sản phẩm nào.</p>';
+          } else {
+            filteredData.forEach(product => {
+              const productElement = document.createElement('div');
+              productElement.innerHTML = `
+                <h3>${product.name}</h3>
+                <p>${product.description}</p>
+                <p>Loại sản phẩm: ${product.category}</p>
+                <p>Giá: ${product.price.toLocaleString()} đồng</p>
+              `;
+              searchResults.appendChild(productElement);
+            });
+          }
+        })
+        .catch(error => {
+          searchResults.innerHTML = '<p>Lỗi: Không thể tìm thấy dữ liệu sản phẩm.</p>';
+        });
+
+//         // Hiển thị ảnh từng sản phẩm
+//     filteredData.forEach(product => {
+//   const productElement = document.createElement('div');
+//   productElement.innerHTML = `
+//     <h3>${product.name}</h3>
+//     <img src="${product.image}" alt="${product.name}">
+//     <p>${product.description}</p>
+//     <p>Loại sản phẩm: ${product.category}</p>
+//     <p>Giá: ${product.price.toLocaleString()} đồng</p>
+//   `;
+//   searchResults.appendChild(productElement);
+//   productElement.classList.add('product');
+// });
+
+
+    }
+
+
+    function showAllProducts() {
+  fetch('data.json')
+    .then(response => response.json())
+    .then(data => {
+      const searchResults = document.getElementById('searchResults');
+      searchResults.innerHTML = '';
+
+      if (data.length === 0) {
+        searchResults.innerHTML = '<p>Không có sản phẩm nào.</p>';
+      } else {
+        data.forEach(product => {
+          const productElement = document.createElement('div');
+          productElement.innerHTML = `
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+            <p>Loại sản phẩm: ${product.category}</p>
+            <p>Giá: ${product.price.toLocaleString()} đồng</p>
+          `;
+          searchResults.appendChild(productElement);
+        });
+      }
+    })
+    .catch(error => {
+      const searchResults = document.getElementById('searchResults');
+      searchResults.innerHTML = '<p>Lỗi: Không thể tìm thấy dữ liệu sản phẩm.</p>';
+    });
+}
+
+fetch('data.json')
+  .then(response => response.json())
+  .then(data => {
+    // Trích xuất đường dẫn ảnh từ dữ liệu JSON
+    const imagePath = data.imagePath;
+
+    // Tạo thẻ <img> và hiển thị ảnh trên trang web
+    const img = document.createElement('img');
+    img.src = imagePath;
+    document.body.appendChild(img);
+  });
+
+
+      // Tìm kiếm theo giá
+      function searchByPrice() {
+  searchResults.innerHTML = '';
+
+  const minPrice = Number(document.getElementById('minPrice').value);
+  const maxPrice = Number(document.getElementById('maxPrice').value);
+
+  fetch('data.json')
+    .then(response => response.json())
+    .then(data => {
+      const filteredData = data.filter(product => {
+        return product.price >= minPrice && product.price <= maxPrice;
+      });
+
+      if (filteredData.length === 0) {
+        searchResults.innerHTML = '<p>Không tìm thấy sản phẩm nào trong khoảng giá này.</p>';
+      } else {
+        filteredData.forEach(product => {
+          const productElement = document.createElement('div');
+          productElement.innerHTML = `
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+            <p>Loại sản phẩm: ${product.category}</p>
+            <p>Giá: ${product.price.toLocaleString()} đồng</p>
+          `;
+          searchResults.appendChild(productElement);
+        });
+      }
+    })
+    .catch(error => {
+      searchResults.innerHTML = '<p>Lỗi: Không thể tìm thấy dữ liệu sản phẩm.</p>';
+    });
+}
+
+
+  </script>
+</body>
+</html>
