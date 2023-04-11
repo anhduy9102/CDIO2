@@ -143,11 +143,11 @@ const renderProduct = data => {
                         <i class="text-warning fa fa-star"></i>
                         <i class="text-warning fa fa-star"></i>
                         <i class="text-warning fa fa-star"></i>
-                        <i class="text-warning fa fa-star"></i>
-                        <i class="text-warning fa fa-star"></i>
+                        <i class="text-muted fa fa-star"></i>
+                        <i class="text-muted fa fa-star"></i>
                     </li>
                 </ul>
-                <p class="text-center mb-0">${price}₫</p>
+                <p class="text-center mb-0">$${price}</p>
                 <p class="text-center mb-0">${gender}</p>
             </div>
         </div>
@@ -159,6 +159,15 @@ const renderProduct = data => {
     addCart(data)
 }
 
+const singleProduct = () => {
+    const listBtn = document.querySelectorAll('.product__cart--btn li a')
+
+    listBtn.forEach(btn => {
+        btn.addEventListener('click', e => {
+            localStorage.setItem('targetID', JSON.stringify(e.target.dataset.id))
+        })
+    })
+}
 
 const filter = () => {
     const genderBtn = document.querySelectorAll('.gender__btn')
