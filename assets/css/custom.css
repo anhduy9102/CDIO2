@@ -147,3 +147,10 @@ Custom Css
     justify-content: space-between;
     box-sizing: content-box
 }
+
+.back__cart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px auto;
+}
