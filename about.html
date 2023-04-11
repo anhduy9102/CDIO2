@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/templatemo.css">
     <link rel="stylesheet" href="assets/css/custom.css">
+    <!-- <link rel="stylesheet" href="./assets/css/checkout.css"> -->
 
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
@@ -97,9 +98,20 @@ https://templatemo.com/tm-559-zay-shop
                         <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
                     </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                    <a class="nav-icon position-relative text-decoration-none account" href="#">
                         <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
+                        <!-- <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">
+                        </span> -->
+                        <div class="account-form" id="account-form">
+                            <h1>Tài khoản</h1>
+                            <p>Xin chào, John Doe!</p>
+                            <ul>
+                                <li class="setting"><a href="#">Cài đặt và Quyền riêng tư</a></li>
+                                <li class="help"><a href="#">Trợ giúp</a></li>
+                                <li class="feedback"><a href="#">Đóng góp ý kiến</a></li>
+                            </ul>
+                            <button type="submit" id="logout-button">Đăng xuất</button>
+                        </div>
                     </a>
                 </div>
             </div>
@@ -300,7 +312,7 @@ https://templatemo.com/tm-559-zay-shop
     </section>
     <!--End Brands-->
 
-    !-- Start Footer -->
+    <!-- Start Footer -->
     <footer class="bg-dark" id="tempaltemo_footer">
         <div class="container">
             <div class="row">
@@ -400,6 +412,7 @@ https://templatemo.com/tm-559-zay-shop
     <script src="assets/js/templatemo.js"></script>
     <script src="assets/js/custom.js"></script>
     <script src="assets/js/shopJS/logout.js"></script>
+    
     <!-- End Script -->
 </body>
 

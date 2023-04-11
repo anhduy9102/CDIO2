@@ -13,3 +13,9 @@ logoutButton.addEventListener('click', function () {
 	// Chuyển hướng đến trang đăng nhập khi người dùng nhấp vào nút đăng xuất
 	window.location.href = 'login.html'
 })
+
+// const accountIcon = document.getElementById("account-icon");
+// 		const accountInfo = document.getElementById("account-info");
+// 		accountIcon.addEventListener("click", function() {
+// 			accountInfo.style.display = "block";
+// 		})
