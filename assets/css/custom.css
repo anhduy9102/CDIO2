@@ -48,6 +48,7 @@ Custom Css
     border-radius: 5px;
     background-color: #f9f9f9;
     z-index: 1;
+    width: 360px;
 }
 
 .gender__btn {
@@ -77,18 +78,6 @@ Custom Css
     display: flex;
     justify-content: flex-end;
     align-items: center;
-}
-
-.account-form {
-    display: none;
-    position: absolute;
-    top: 60px;
-    right: 10px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    z-index: 1;
 }
 
 
