@@ -55,3 +55,10 @@ $(document).ready(function() {
     // End roduct detail
 
 });
+
+
+// Sự kiện nút tìm kiếm
+const searchBtn = document.getElementById('searchBtn');
+searchBtn.addEventListener('click', () => {
+  window.location.href = "search.html";
+});
