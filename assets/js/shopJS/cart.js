@@ -1,38 +1,38 @@
 const Cart = document.getElementById('datarow')
 
-const getCart = async () => {
-	try {
-		let response = await fetch('http://localhost:3000/cart')
+const getCart = async() => {
+    try {
+        let response = await fetch('http://localhost:3000/cart')
 
-		let data = response.json()
+        let data = response.json()
 
-		return data
-	} catch (err) {
-		console.log(err)
-	}
+        return data
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 const deleteProduct = async id => {
-	try {
-		let response = await fetch(`http://localhost:3000/cart/${id}`, {
-			method: 'DELETE',
-		})
+    try {
+        let response = await fetch(`http://localhost:3000/cart/${id}`, {
+            method: 'DELETE',
+        })
 
-		let data = response.json()
+        let data = response.json()
 
-		return data
-	} catch (err) {
-		console.log(err)
-	}
+        return data
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 const renderCart = data => {
-	if (!Array.isArray(data)) return 'data is not array'
-	let result = ''
-	data.forEach(product => {
-		const { id, image__url, name, price, amount } = product
+    if (!Array.isArray(data)) return 'data is not array'
+    let result = ''
+    data.forEach(product => {
+        const { id, image__url, name, price, amount } = product
 
-		result += `
+        result += `
             <tr>
                 <td>${id}</td>
                 <td>
@@ -40,9 +40,9 @@ const renderCart = data => {
                 </td>
                 <td>${name}</td>
                 <td class="text-right">${amount}</td>
-                <td class="text-right">${price}</td>
+                <td class="text-right">${price}₫</td>
                 <td class="text-right">${
-									parseInt(price) * parseInt(amount)
+									parseInt(price) * parseInt(amount)+'.000₫'
 								}</td>
                 <td>
                     <a id="delete_1" data-product=${id} class="btn btn-danger btn-delete-sanpham">
@@ -51,27 +51,27 @@ const renderCart = data => {
                 </td>
             </tr>
         `
-	})
-	Cart.innerHTML = result
+    })
+    Cart.innerHTML = result
 
-	removeProduct()
+    removeProduct()
 }
 
 const removeProduct = () => {
-	const btns = document.querySelectorAll('.btn-delete-sanpham')
+    const btns = document.querySelectorAll('.btn-delete-sanpham')
 
-	btns.forEach(btn => {
-		btn.addEventListener('click', e => {
-			e.preventDefault()
-			let productId = e.target.dataset.product
+    btns.forEach(btn => {
+        btn.addEventListener('click', e => {
+            e.preventDefault()
+            let productId = e.target.dataset.product
 
-			deleteProduct(productId)
-		})
-	})
+            deleteProduct(productId)
+        })
+    })
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-	getCart().then(data => {
-		renderCart(data)
-	})
+    getCart().then(data => {
+        renderCart(data)
+    })
 })

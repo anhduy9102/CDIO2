@@ -1,119 +1,119 @@
 const productList = document.querySelector('.container__products')
 
-const getProduct = async () => {
-	try {
-		let response = await fetch('http://localhost:3000/products')
+const getProduct = async() => {
+    try {
+        let response = await fetch('http://localhost:3000/products')
 
-		let data = response.json()
+        let data = response.json()
 
-		return data
-	} catch (err) {
-		console.log(err)
-	}
+        return data
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 const getProduct1 = async gender => {
-	try {
-		let response = await fetch(
-			`http://localhost:3000/products?gender=${gender}`,
-		)
+    try {
+        let response = await fetch(
+            `http://localhost:3000/products?gender=${gender}`,
+        )
 
-		let data = response.json()
+        let data = response.json()
 
-		return data
-	} catch (err) {
-		console.log(err)
-	}
+        return data
+    } catch (err) {
+        console.log(err)
+    }
 }
 
-const getCart = async () => {
-	try {
-		let response = await fetch('http://localhost:3000/cart')
+const getCart = async() => {
+    try {
+        let response = await fetch('http://localhost:3000/cart')
 
-		let data = response.json()
+        let data = response.json()
 
-		return data
-	} catch (err) {
-		console.log(err)
-	}
+        return data
+    } catch (err) {
+        console.log(err)
+    }
 }
 
-const updateProduct = async (body, id) => {
-	try {
-		let response = await fetch(`http://localhost:3000/cart/${id}`, {
-			method: 'PUT',
-			mode: 'cors',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(body),
-		})
+const updateProduct = async(body, id) => {
+    try {
+        let response = await fetch(`http://localhost:3000/cart/${id}`, {
+            method: 'PUT',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body),
+        })
 
-		let data = response.json()
+        let data = response.json()
 
-		return data
-	} catch (err) {
-		console.log(err)
-	}
+        return data
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 const postAddToCart = async body => {
-	try {
-		let response = await fetch('http://localhost:3000/cart', {
-			method: 'POST',
-			mode: 'cors',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(body),
-		})
+    try {
+        let response = await fetch('http://localhost:3000/cart', {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body),
+        })
 
-		let data = response.json()
+        let data = response.json()
 
-		return data
-	} catch (err) {
-		console.log(err)
-	}
+        return data
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 var cart = []
 
 const addCart = data => {
-	const btns = document.querySelectorAll('.addCart')
+    const btns = document.querySelectorAll('.addCart')
 
-	btns.forEach(btn => {
-		btn.addEventListener('click', e => {
-			const value = data.find(value => {
-				return value.id === e.target.dataset.id
-			})
-			if (value) {
-				getCart().then(data => {
-					const check = data.find(product => {
-						return product.id === value.id
-					})
+    btns.forEach(btn => {
+        btn.addEventListener('click', e => {
+            const value = data.find(value => {
+                return value.id === e.target.dataset.id
+            })
+            if (value) {
+                getCart().then(data => {
+                    const check = data.find(product => {
+                        return product.id === value.id
+                    })
 
-					if (!check) {
-						postAddToCart(value)
-					} else {
-						if (typeof check.amount === 'string') {
-							check.amount = parseInt(check.amount)
-						}
-						check.amount += 1
-						updateProduct(check, check.id)
-					}
-				})
-			}
-		})
-	})
+                    if (!check) {
+                        postAddToCart(value)
+                    } else {
+                        if (typeof check.amount === 'string') {
+                            check.amount = parseInt(check.amount)
+                        }
+                        check.amount += 1
+                        updateProduct(check, check.id)
+                    }
+                })
+            }
+        })
+    })
 }
 
 const renderProduct = data => {
-	if (!Array.isArray(data)) return 'data is not array'
-	let result = ''
-	data.forEach(product => {
-		const { id, image__url, name, gender, price } = product
+    if (!Array.isArray(data)) return 'data is not array'
+    let result = ''
+    data.forEach(product => {
+        const { id, image__url, name, gender, price } = product
 
-		result += `
+        result += `
         <div class="col-md-4">
             <div class="card mb-4 product-wap rounded-0">
             <div class="card rounded-0">
@@ -143,70 +143,61 @@ const renderProduct = data => {
                         <i class="text-warning fa fa-star"></i>
                         <i class="text-warning fa fa-star"></i>
                         <i class="text-warning fa fa-star"></i>
-                        <i class="text-muted fa fa-star"></i>
-                        <i class="text-muted fa fa-star"></i>
+                        <i class="text-warning fa fa-star"></i>
+                        <i class="text-warning fa fa-star"></i>
                     </li>
                 </ul>
-                <p class="text-center mb-0">$${price}</p>
+                <p class="text-center mb-0">${price}₫</p>
                 <p class="text-center mb-0">${gender}</p>
             </div>
         </div>
     </div>
         `
-	})
-	productList.innerHTML = result
+    })
+    productList.innerHTML = result
 
-	addCart(data)
+    addCart(data)
 }
 
-const singleProduct = () => {
-	const listBtn = document.querySelectorAll('.product__cart--btn li a')
-
-	listBtn.forEach(btn => {
-		btn.addEventListener('click', e => {
-			localStorage.setItem('targetID', JSON.stringify(e.target.dataset.id))
-		})
-	})
-}
 
 const filter = () => {
-	const genderBtn = document.querySelectorAll('.gender__btn')
+    const genderBtn = document.querySelectorAll('.gender__btn')
 
-	genderBtn.forEach(btn => {
-		btn.addEventListener('click', e => {
-			let gender = e.target.dataset.value
+    genderBtn.forEach(btn => {
+        btn.addEventListener('click', e => {
+            let gender = e.target.dataset.value
 
-			if (gender === 'all') {
-				getProduct().then(data => {
-					renderProduct(data)
-					singleProduct()
-					filter()
-				})
-			} else {
-				getProduct1(gender).then(data => {
-					renderProduct(data)
-					singleProduct()
-					filter()
-				})
-			}
-		})
-	})
+            if (gender === 'all') {
+                getProduct().then(data => {
+                    renderProduct(data)
+                    singleProduct()
+                    filter()
+                })
+            } else {
+                getProduct1(gender).then(data => {
+                    renderProduct(data)
+                    singleProduct()
+                    filter()
+                })
+            }
+        })
+    })
 }
 
 const saveLocalStorage = data => {
-	localStorage.setItem('data', JSON.stringify(data))
+    localStorage.setItem('data', JSON.stringify(data))
 }
 
 const getLocalStorage = () => {
-	return JSON.parse(localStorage.getItem('data'))
+    return JSON.parse(localStorage.getItem('data'))
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-	getProduct().then(data => {
-		renderProduct(data)
-		singleProduct()
-		filter()
-	})
+    getProduct().then(data => {
+        renderProduct(data)
+        singleProduct()
+        filter()
+    })
 
-	// getProduct1('Nam').then(data => renderProduct(data))
+    // getProduct1('Nam').then(data => renderProduct(data))
 })
