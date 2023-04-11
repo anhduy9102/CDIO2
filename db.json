@@ -1,0 +1,135 @@
+{
+	"products": [
+		{
+			"id": "1",
+			"image__url": "assets/img/shop_01.jpg",
+			"name": "Sang trọng",
+			"gender": "Nam",
+			"price": "250.000",
+			"description": "",
+			"amount": "1"
+		},
+		{
+			"id": "2",
+			"image__url": "assets/img/shop_02.jpg",
+			"name": "Trang nhã",
+			"gender": "Nữ",
+			"price": "250.000",
+			"description": "",
+			"amount": "1"
+		},
+		{
+			"id": "3",
+			"image__url": "assets/img/shop_03.jpg",
+			"name": "Trẻ trung",
+			"gender": "Nữ",
+			"price": "250.000",
+			"description": "",
+			"amount": "1"
+		},
+		{
+			"id": "4",
+			"image__url": "assets/img/shop_04.jpg",
+			"name": "Phá cách",
+			"gender": "Nam",
+			"price": "250.000",
+			"description": "",
+			"amount": "1"
+		},
+		{
+			"id": "5",
+			"image__url": "assets/img/shop_05.jpg",
+			"name": "Lịch lãm",
+			"gender": "Nam",
+			"price": "250.000",
+			"description": "",
+			"amount": "1"
+		},
+		{
+			"id": "6",
+			"image__url": "assets/img/shop_06.jpg",
+			"name": "Tôn giáo",
+			"gender": "Nữ",
+			"price": "250.000",
+			"description": "",
+			"amount": "1"
+		},
+		{
+			"id": "7",
+			"image__url": "assets/img/shop_07.jpg",
+			"name": "Thành đạt",
+			"gender": "Nam",
+			"price": "250.000",
+			"description": "",
+			"amount": "1"
+		},
+		{
+			"id": "8",
+			"image__url": "assets/img/shop_08.jpg",
+			"name": "Thể thao",
+			"gender": "Nữ",
+			"price": "250.000",
+			"description": "",
+			"amount": "1"
+		},
+		{
+			"id": "9",
+			"image__url": "assets/img/shop_13.jpg",
+			"name": "Mùa hè",
+			"gender": "Nam",
+			"price": "250.000",
+			"description": "",
+			"amount": "1"
+		},
+		{
+			"id": "10",
+			"image__url": "assets/img/shop_12.jpg",
+			"name": "Quần culottes",
+			"gender": "Nữ",
+			"price": "250.000",
+			"description": "",
+			"amount": "1"
+		},
+		{
+			"id": "11",
+			"image__url": "assets/img/shop_15.jpg",
+			"name": "Thoải mái",
+			"gender": "Nam",
+			"price": "250.000",
+			"description": "",
+			"amount": "1"
+		},
+		{
+			"id": "12",
+			"image__url": "assets/img/shop_14.jpg",
+			"name":"Hàn quốc",
+			"gender": "Nam",
+			"price": "250.000",
+			"description": "",
+			"amount": "1"
+		}
+
+
+		
+	],
+	"cart": [
+		{
+			"id": "7",
+			"image__url": "assets/img/shop_07.jpg",
+			"name": "Thành đạt",
+			"gender": "Nữ",
+			"price": "250.000",
+			"description": "",
+			"amount": "1"
+		},
+		{
+			"id": "5",
+			"image__url": "assets/img/shop_05.jpg",
+			"name": "Lịch lãm",
+			"gender": "Nữ",
+			"price": "250.000",
+			"description": "",
+			"amount": "1"
+		}
+	]
+}
