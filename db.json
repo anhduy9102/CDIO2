@@ -99,6 +99,24 @@
       "gender": "Nam",
       "price": "250.000",
       "description": "",
+      "amount": 3
+    },
+    {
+      "id": "4",
+      "image__url": "assets/img/shop_04.jpg",
+      "name": "Phá cách",
+      "gender": "Nữ",
+      "price": "250.000",
+      "description": "",
+      "amount": 2
+    },
+    {
+      "id": "5",
+      "image__url": "assets/img/shop_05.jpg",
+      "name": "Lịch lãm",
+      "gender": "Nữ",
+      "price": "250.000",
+      "description": "",
       "amount": "1"
     }
   ]
