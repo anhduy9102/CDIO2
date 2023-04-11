@@ -80,7 +80,26 @@
       "price": "250.000",
       "description": "",
       "amount": "1"
+    },
+    {
+      "id": "10",
+      "image__url": "assets/img/polo.jpg",
+      "name": "Áo Polo Tennis 3 sọc",
+      "gender": "Nam",
+      "price": "300.000",
+      "description": "Áo thể thao nam",
+      "amount": "1"
     }
   ],
-  "cart": []
+  "cart": [
+    {
+      "id": "1",
+      "image__url": "assets/img/shop_01.jpg",
+      "name": "Sang trọng",
+      "gender": "Nam",
+      "price": "250.000",
+      "description": "",
+      "amount": "1"
+    }
+  ]
 }

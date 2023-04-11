@@ -1,20 +1,19 @@
 {
-    "name": "templatemo_559_zay_shop",
-    "version": "1.0.0",
-    "main": "index.js",
-    "scripts": {
-        "start": " json-server --watch db.json",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "json-server": "^0.17.3"
-
-    },
-    "devDependencies": {
-        "nodemon": "^2.0.21"
-    },
-    "description": ""
+  "name": "templatemo_559_zay_shop",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "json-server --watch db.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "description": ""
 }
